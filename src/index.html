@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GET VISA</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+    <img src="../images/new-person.png" id="openModal"/>
+
+    <div class="main-table">
+        <div class="column-left">
+            <div class="column-left_add-custom-person">
+                <div class="personal-information-top">
+                    <div>
+                        <label for="firstName">First name</label>
+                        <input type="text" id="firstName" placeholder="First name" class="input-name">
+                    </div>
+                    <div>
+                        <label for="lastName">Last name</label>
+                        <input type="text" id="lastName" placeholder="Last name" class="input-name">
+                    </div>
+                </div>
+                <div class="personal-information-bottom">
+                    <div class="person-inf-block extra-inf">
+                        <label for="healthy">Health</label>
+                        <input type="number" placeholder="health" id="healthy" min="1" max="100" step="1">
+                    </div>
+                    <div class="person-inf-block extra-inf">
+                        <label for="money">Money</label>
+                        <input type="number" placeholder="money" id="money" min="1" max="1000000" step="1">
+                    </div>
+                    <div class="person-inf-block extra-inf">
+                        <label for="age">Age</label>
+                        <input type="number" placeholder="age" id="age" min="1" max="100" step="1">
+                    </div>
+                    <div class="person-inf-block extra-inf">
+                        <label for="sex">Sex</label>
+                        <select id="sex">
+                            <option>male</option>
+                            <option>female</option>
+                        </select>
+                    </div>
+                    <div class="person-inf-block extra-inf">
+                        <label for="passport">Passport</label>
+                        <input type="checkbox" id="passport" class="input-checkbox">
+                    </div>
+                </div>
+                <div class="person-buttons">
+                    <button id="addPerson">Add</button>
+                    <button id="clearPersons">Clear</button>
+                    <button id="startGetVisa">Start</button>
+                </div>
+            </div>
+            <div class="column-left_persons-tickets">
+
+            </div>
+        </div>
+        <div id="myModal" class="column-right modal">
+            <div class="column-right_add-random-persons modal-content">
+                <span id="closeModal">&times;</span>
+                <div class="modal-body">
+                    <input type="number" placeholder="Quantity of persons" id="quantityPersons" min="1">
+                    <div class="random-persons-block">
+                        <span>Health</span>
+                        <input type="number" placeholder="from" id="healthyMin" min="1" max="100" step="1">
+                        <i>—</i>
+                        <input type="number" placeholder="to" id="healthyMax" min="1" max="100" step="1">
+                    </div>
+                    <div class="random-persons-block">
+                        <span>Money</span>
+                        <input type="number" placeholder="from" id="moneyMin" min="1" max="100000" step="1">
+                        <i>—</i>
+                        <input type="number" placeholder="to" id="moneyMax" min="1" max="100000" step="1">
+                    </div>
+                    <div class="random-persons-block">
+                        <span>Age</span>
+                        <input type="number" placeholder="from" id="ageMin" min="1" max="100" step="1">
+                        <i>—</i>
+                        <input type="number" placeholder="to" id="ageMax" min="1" max="100" step="1">
+                    </div>
+                    <button id="generatorPersons">Generate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script src="./js/model.js"></script>
+<script src="./js/view.js"></script>
+<script src="./js/person.js"></script>
+<script src="./js/random.js"></script>
+<script src="./js/promise.js"></script>
+<script src="./js/controller.js"></script>
+<script src="./js/popap.js"></script>
+
+<script>
+    window.addEventListener('load', () => {
+        const poPap = new PoPap();
+        poPap.init();
+
+        const model = new VisaModel();
+        const view = new VisaView(model);
+        const controller = new VisaController(model, view);
+    });
+</script>
+</body>
+</html>

@@ -4,7 +4,7 @@ const passportControl = new Promise(function (resolve, reject) {
         let passport = true;
         let age = 22;
 
-        if (passport == true && age > 16) {
+        if (passport === true && validateAge(age)) {
             resolve({
                 visa: true
             });
@@ -28,7 +28,7 @@ const medicalExamination = new Promise(function (resolve, reject) {
     setTimeout(() => {
         let healthy = 65;
 
-        if (healthy > 58) {
+        if (validateHealthy(healthy)) {
             resolve({
                 visa: true
             });
@@ -51,7 +51,7 @@ const medicalExamination = new Promise(function (resolve, reject) {
 
         setTimeout(() => {
             let money = 20000;
-            if (money > 25000) {
+            if (validateMoney(money)) {
                 resolve({
                     visa: true
                 });
@@ -67,7 +67,7 @@ const medicalExamination = new Promise(function (resolve, reject) {
                 console.log("Банк не одобрил", reason);
             });
         }, 2000);
-    })
+    });
 
 
 
@@ -76,6 +76,18 @@ const medicalExamination = new Promise(function (resolve, reject) {
         })
             .catch(() => {
                 console.log('Что-то пошло не так, виза не получена!!')
-            })
+            });
+
+function validateAge (value) {
+    return value > 18 && value < 100
+};
+
+function validateMoney (value) {
+    return value > 5000
+};
+
+function validateHealthy (value) {
+    return value > 0 && value < 100
+};
 
 

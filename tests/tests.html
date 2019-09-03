@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+</head>
+<body>
+
+
+<div id="mocha"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.2.0/chai.js"></script>
+
+<script>
+    mocha.setup('bdd');
+    let assert = chai.assert;
+</script>
+
+<script src="../src/js/model.js"></script>
+<script src="../src/js/view.js"></script>
+<script src="../src/js/person.js"></script>
+<script src="../src/js/controller.js"></script>
+<script src="./jsTests/js_tests.js"></script>
+
+<script>
+    mocha.run();
+</script>
+</body>
+</html>
